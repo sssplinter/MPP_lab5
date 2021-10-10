@@ -4,11 +4,11 @@
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{F2377013-7135-47EB-871A-54371CF73DB7}</ProjectGuid>
-        <OutputType>Exe</OutputType>
+        <ProjectGuid>{CB256AC5-A79A-4875-B5E8-6F928D49CA3B}</ProjectGuid>
+        <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>Lab5</RootNamespace>
-        <AssemblyName>Lab5</AssemblyName>
+        <RootNamespace>Core</RootNamespace>
+        <AssemblyName>Core</AssemblyName>
         <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
     </PropertyGroup>
@@ -38,16 +38,8 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="AssemblyReader\AssemblyReader.cs" />
-        <Compile Include="AssemblyReader\AssemblyUtils.cs" />
-        <Compile Include="Program.cs" />
+        <Compile Include="Class1.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-    </ItemGroup>
-    <ItemGroup>
-      <ProjectReference Include="..\Core\Core.csproj">
-        <Project>{cb256ac5-a79a-4875-b5e8-6f928d49ca3b}</Project>
-        <Name>Core</Name>
-      </ProjectReference>
     </ItemGroup>
     <ItemGroup>
       <Content Include=".gitignore" />

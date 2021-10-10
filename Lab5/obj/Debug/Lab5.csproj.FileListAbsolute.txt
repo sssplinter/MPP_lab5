@@ -4,3 +4,6 @@ D:\5Sem\MPP\Lab5\Lab5\obj\Debug\Lab5.csprojAssemblyReference.cache
 D:\5Sem\MPP\Lab5\Lab5\obj\Debug\Lab5.csproj.CoreCompileInputs.cache
 D:\5Sem\MPP\Lab5\Lab5\obj\Debug\Lab5.exe
 D:\5Sem\MPP\Lab5\Lab5\obj\Debug\Lab5.pdb
+D:\5Sem\MPP\Lab5\Lab5\bin\Debug\Core.dll
+D:\5Sem\MPP\Lab5\Lab5\bin\Debug\Core.pdb
+D:\5Sem\MPP\Lab5\Lab5\obj\Debug\Lab5.csproj.CopyComplete

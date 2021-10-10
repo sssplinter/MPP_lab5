@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
+using Core;
 using Lab5;
 
 namespace AssemblyReader
 {
-    [AttributeUsage(AttributeTargets.Class)]
-    public class ExportClassAttribute : Attribute { }
-    
     public static class AssemblyReader
     {
         public static AssemblyInfo GetAssemblyInfo(string assemblyFile)
@@ -44,21 +42,24 @@ namespace AssemblyReader
         {
             Assembly a = Assembly.LoadFrom(assemblyFile);
             AssemblyInfo assemblyInfo = new AssemblyInfo(a.GetName().Name);
-
             a.GetTypes().Select(t => t.Namespace).Distinct().Where(n => n != null).ToList().ForEach(s =>
             {
                 NamespaceInfo namespaceInfo = new NamespaceInfo(s);
                 assemblyInfo.Namespaces.Add(namespaceInfo);
-                a.GetTypes().Where(t => t.IsClass && t.IsDefined(typeof(ExportClassAttribute), false) && t.Namespace == s)
+                a.GetTypes().Where(t => t.IsClass && t.Namespace == s)
                     .ToList().ForEach(
-                    c =>
-                    {
-                        ClassInfo classInfo = new ClassInfo(c.ToString());
-                        Console.WriteLine(c.ToString());
-                        namespaceInfo.Classes.Add(classInfo);
-                    });
+                        c =>
+                        {
+                            if (c.IsDefined(typeof(ExportClassAttribute), false))
+                            {
+                                Console.WriteLine(c.ToString());
+
+                                ClassInfo classInfo = new ClassInfo(c.ToString());
+                                namespaceInfo.Classes.Add(classInfo);
+                            }
+                        });
             });
-            
+
             return assemblyInfo;
         }
     }
